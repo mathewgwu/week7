@@ -1,0 +1,44 @@
+<html>
+<head>
+<style>
+  svg {
+    height: 500px;
+    width: 500px;
+    border: 1px solid gray;
+  }
+
+
+
+</style>
+
+</head>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<div id="pieVisualization">
+  <svg>
+  </svg>
+</div>
+<script>
+var pieChart = d3.layout.pie();
+var yourPie = pieChart([10,20,30]);
+
+var newArc = d3.svg.arc();
+newArc.outerRadius(100);
+
+      d3.select("svg")
+     .append("g")
+     .attr("transform","translate(250,250)")
+     .selectAll("path")
+     .data(yourPie)
+     .enter()
+     .append("path")
+     .attr("d", newArc)
+     .style("fill", "blue")
+     .style("opacity", .5)
+     .style("stroke", "black")
+     .style("stroke-width", "2px")
+
+</script>
+
+</body>
+</html>
